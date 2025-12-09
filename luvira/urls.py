@@ -48,6 +48,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),  # Pour login DRF browser
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Login JWT
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh JWT
+    path('api/payments/webhook/', PaymentViewSet.as_view({'post': 'webhook'}), name='payment-webhook'),
 ]
 
 # Servir media files en dev mode (photos, docs, etc.)

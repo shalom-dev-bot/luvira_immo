@@ -5,7 +5,7 @@ from properties.models import Property
 class ContractTemplate(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, limit_choices_to={'role': 'admin'})
     title = models.CharField(max_length=200)
-    content = models.TextField()  # Modèle de contrat
+    content = models.TextField()  # Modèle texte (clauses)
 
 class Contract(models.Model):
     template = models.ForeignKey(ContractTemplate, on_delete=models.SET_NULL, null=True)
@@ -17,5 +17,5 @@ class Contract(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     signed_by_owner = models.BooleanField(default=False)
     signed_by_tenant = models.BooleanField(default=False)
-    pdf_file = models.FileField(upload_to='contracts/', blank=True)
+    pdf_file = models.FileField(upload_to='contracts/', blank=True)  # PDF généré
     created_at = models.DateTimeField(auto_now_add=True)
