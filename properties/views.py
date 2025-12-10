@@ -5,12 +5,12 @@ from .models import Property
 from .serializers import PropertySerializer
 
 class PropertyViewSet(viewsets.ModelViewSet):
-    queryset = Property.objects.filter(is_active=True)
-    serializer_class = PropertySerializer
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['city', 'neighborhood', 'category', 'price_per_month', 'bedrooms', 'status']
-    search_fields = ['title', 'description']
-    ordering_fields = ['price_per_month', 'created_at']
+    queryset          = Property.objects.filter(is_active=True)
+    serializer_class  = PropertySerializer
+    filter_backends   = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields  = ['city', 'neighborhood', 'category', 'price_per_month', 'bedrooms', 'status']
+    search_fields     = ['title', 'description']
+    ordering_fields   = ['price_per_month', 'created_at']
 
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:

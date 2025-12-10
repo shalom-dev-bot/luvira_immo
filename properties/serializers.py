@@ -4,7 +4,7 @@ from .models import Property
 
 class PropertySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Property
+        model  = Property
         fields = ['id', 'owner', 'category', 'title', 'description', 'price_per_night', 'price_per_month', 'status', 'address', 'location', 'city', 'neighborhood', 'bedrooms', 'bathrooms', 'surface', 'services', 'photos', 'videos', 'created_at', 'is_active']
 
     def validate_location(self, value):

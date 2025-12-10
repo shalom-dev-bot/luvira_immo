@@ -141,7 +141,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS pour frontend React
-CORS_ALLOW_ALL_ORIGINS = True  # En prod, whitelist ton domaine frontend (e.g., CORS_ALLOWED_ORIGINS = ['http://localhost:3000'])
+CORS_ALLOW_ALL_ORIGINS = True  # En prod, whitelist mon domaine frontend (e.g., CORS_ALLOWED_ORIGINS = ['http://localhost:3000'])
 
 # Custom User model
 AUTH_USER_MODEL = 'accounts.User'  # Important pour ton modèle User custom

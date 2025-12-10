@@ -7,9 +7,9 @@ class Subscription(models.Model):
         ('quarterly', 'Trimestriel'),
         ('annual', 'Annuel'),
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'role': 'owner'})
-    plan = models.CharField(max_length=20, choices=PLAN_CHOICES)
+    user       = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'role': 'owner'})
+    plan       = models.CharField(max_length=20, choices=PLAN_CHOICES)
     start_date = models.DateField()
-    end_date = models.DateField()
-    is_active = models.BooleanField(default=True)
-    payment = models.ForeignKey('payments.Payment', on_delete=models.SET_NULL, null=True)
+    end_date   = models.DateField()
+    is_active  = models.BooleanField(default=True)
+    payment    = models.ForeignKey('payments.Payment', on_delete=models.SET_NULL, null=True)
