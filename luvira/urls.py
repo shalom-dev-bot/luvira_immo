@@ -1,18 +1,17 @@
 """
 URL configuration for luvira project.
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
 Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+    1. Add an import: from my_app import views
+    2. Add a URL to urlpatterns: path('', views.home, name='home')
 Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+    1. Add an import: from other_app.views import Home
+    2. Add a URL to urlpatterns: path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns: path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
 from django.urls import path, include
@@ -23,12 +22,12 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 # Imports des views de chaque app
 from accounts.views import UserViewSet, OwnerRequestViewSet
-from properties.views import PropertyViewSet
-from contracts.views import ContractViewSet, ContractTemplateViewSet  # Assume tu as ces viewsets
-from payments.views import PaymentViewSet  # Assume
-from subscriptions.views import SubscriptionViewSet  # Assume
-from bookings.views import BookingViewSet  # Assume
-from dashboard.views import DashboardViewSet  # Assume (pour stats, peut être custom)
+from properties.views import PropertyViewSet, ReviewViewSet  # Ajout pour reviews
+from contracts.views import ContractViewSet, ContractTemplateViewSet
+from payments.views import PaymentViewSet
+from subscriptions.views import SubscriptionViewSet
+from bookings.views import BookingViewSet
+from dashboard.views import DashboardViewSet
 
 # Router pour API REST
 router = DefaultRouter()
@@ -41,6 +40,7 @@ router.register(r'payments', PaymentViewSet)
 router.register(r'subscriptions', SubscriptionViewSet)
 router.register(r'bookings', BookingViewSet)
 router.register(r'dashboard', DashboardViewSet, basename='dashboard')
+router.register(r'reviews', ReviewViewSet, basename='reviews')  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
