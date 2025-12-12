@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'subscriptions',
     'bookings',
     'dashboard',
+    'rest_framework_gis',
 ]
 
 MIDDLEWARE = [
